@@ -1,7 +1,5 @@
 
-
 import java.util.*;
-
 
 public class DMVTree {
     
@@ -40,8 +38,8 @@ public class DMVTree {
         baseFee = new TreeNode(100, "baseFee");
         inState = new TreeNode(10, "inState");
         outState = new TreeNode(50, "outState");
-        lateReg2 = new TreeNode(50, "> 1 month");
-        lateReg1 = new TreeNode(20, "< 1 month");
+        lateReg2 = new TreeNode(50, "lateReg2");
+        lateReg1 = new TreeNode(20, "lateReg1");
         notLateReg = new TreeNode(0, "notLateReg");
         car = new TreeNode(30, "car");
         commercial = new TreeNode(35, "commercial");
