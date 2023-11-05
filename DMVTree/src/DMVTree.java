@@ -1,8 +1,7 @@
-package dmvtree;
+
 
 import java.util.*;
-import java.text.*;
-import java.util.Scanner;
+
 
 public class DMVTree {
     
@@ -14,7 +13,7 @@ public class DMVTree {
     public void run() {
          TreeNode baseFees = initializeTree();
          
-        Queue<String> info1 = new LinkedList<>(Arrays.asList("inState", "LateReg", "< 1 month", "motorcycle"));
+        Queue<String> info1 = new LinkedList<>(Arrays.asList("inState", "lateReg1", "< 1 month", "motorcycle"));
         User user1 = new User(info1);
         traverse(baseFees, user1);
         user1.displayReceipt();
@@ -28,35 +27,41 @@ public class DMVTree {
     TreeNode baseFee;
     TreeNode inState;
     TreeNode outState;
-    TreeNode lateReg;
     TreeNode notLateReg;
     TreeNode lateReg1;
     TreeNode lateReg2;
     TreeNode car;
     TreeNode commercial;
     TreeNode motorcycle;
+
+
     
     private TreeNode initializeTree() {
         baseFee = new TreeNode(100, "baseFee");
         inState = new TreeNode(10, "inState");
         outState = new TreeNode(50, "outState");
-        lateReg = new TreeNode(0, "LateReg");
         lateReg2 = new TreeNode(50, "> 1 month");
         lateReg1 = new TreeNode(20, "< 1 month");
         notLateReg = new TreeNode(0, "notLateReg");
         car = new TreeNode(30, "car");
         commercial = new TreeNode(35, "commercial");
         motorcycle = new TreeNode(25, "motorcycle");
+
         
         
         baseFee.addChild(inState);
         baseFee.addChild(outState);
-        inState.addChild(lateReg);
+
         inState.addChild(notLateReg);
-        outState.addChild(lateReg);
+        inState.addChild(lateReg1);
+        inState.addChild(lateReg2);
+
         outState.addChild(notLateReg);
-        lateReg.addChild(lateReg1);
-        lateReg.addChild(lateReg2);
+        outState.addChild(lateReg1);
+        outState.addChild(lateReg2);
+
+
+
         lateReg1.addChild(car);
         lateReg1.addChild(commercial);
         lateReg1.addChild(motorcycle);

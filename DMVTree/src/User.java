@@ -1,4 +1,4 @@
-package dmvtree;
+
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -29,7 +29,14 @@ public class User {
         public void displayReceipt() {
             currency = NumberFormat.getCurrencyInstance();
             for (Nodes f : receipt) {
-                System.out.println(f.getName() + ": " + currency.format(f.getValue()));
+                if (f instanceof TreeNode) {
+                    TreeNode thisNode = (TreeNode) f;
+                    System.out.println(thisNode.getName() + ": " + currency.format(thisNode.getValue()));
+                }
+                //else {
+                //    PercentNode thisNode = (PercentNode) f;
+                //    System.out.println(thisNode.getName() + ": " + (int)(thisNode.getValue() * 100) + "%");
+                //}
             }
             System.out.println("Total: " + currency.format(this.sum) + "\n");
         }

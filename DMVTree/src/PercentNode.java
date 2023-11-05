@@ -1,10 +1,6 @@
-import java.util.ArrayList;
+
+
 import java.util.List;
-
-import dmvtree.Nodes;
-
-import java.util.*;
-import java.text.*;
 
 public class PercentNode implements Nodes  {
     private float percentage;
@@ -14,7 +10,7 @@ public class PercentNode implements Nodes  {
         children.add(child);
     }
     public float getValue() {
-        return value;
+        return this.percentage;
     }
     public String getName()
     {
@@ -26,6 +22,6 @@ public class PercentNode implements Nodes  {
 
     @Override
     public double addFee(double sum) {
-        return sum + value;
+        return sum + (sum * percentage);
     }
 }

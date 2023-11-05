@@ -1,21 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package dmvtree;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import java.util.*;
-import java.text.*;
-
-public interface Nodes{ 
-    public double addFee(double sum);
-    public String getName();
-    public List<Nodes> getChildren();
-    public double getValue();
-}
 
 public class TreeNode implements Nodes {
     private double value;
