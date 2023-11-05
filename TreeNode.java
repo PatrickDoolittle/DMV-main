@@ -33,4 +33,8 @@ public class TreeNode {
         public List<TreeNode> getChildren() {
             return children;
         }
+
+        public double addFee(double sum) {
+            return sum + value;
+        }
 }

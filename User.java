@@ -18,7 +18,7 @@ public class User {
         }
         
         public void addFee(TreeNode transaction) {
-            this.sum += transaction.getValue();
+            this.sum = transaction.addFee(this.sum);
             receipt.add(transaction);
         }
         
