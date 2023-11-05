@@ -10,17 +10,24 @@ import java.util.List;
 import java.util.*;
 import java.text.*;
 
-public class TreeNode {
+public interface Nodes{ 
+    public double addFee(double sum);
+    public String getName();
+    public List<Nodes> getChildren();
+    public double getValue();
+}
+
+public class TreeNode implements Nodes {
     private double value;
         private String name;
-        private List<TreeNode> children;
+        private List<Nodes> children;
         
         public TreeNode(double value, String name) {
             this.value = value;
             this.name = name;
             children = new ArrayList<>();
         }
-        public void addChild(TreeNode child) {
+        public void addChild(Nodes child) {
             children.add(child);
         }
         public double getValue() {
@@ -30,10 +37,11 @@ public class TreeNode {
         {
             return name;
         }
-        public List<TreeNode> getChildren() {
+        public List<Nodes> getChildren() {
             return children;
         }
 
+        @Override
         public double addFee(double sum) {
             return sum + value;
         }

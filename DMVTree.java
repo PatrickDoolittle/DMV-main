@@ -70,13 +70,13 @@ public class DMVTree {
         return baseFee;
     }
      
-    public void traverse(TreeNode node, User user) {
+    public void traverse(Nodes node, User user) {
         if (node == null) return;
         user.addFee(node);
         
         String nextStep = user.getInfo().poll();
-        TreeNode nextNode = null;
-        for (TreeNode child : node.getChildren()) {
+        Nodes nextNode = null;
+        for (Nodes child : node.getChildren()) {
             if (child.getName().equals(nextStep)) {
                 nextNode = child;
                 break;

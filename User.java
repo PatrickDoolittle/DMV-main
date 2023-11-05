@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class User {
         private Queue<String> info;
-        private List<TreeNode> receipt;
+        private List<Nodes> receipt;
         private double sum;
         private NumberFormat currency;
         
@@ -17,7 +17,7 @@ public class User {
             this.receipt  = new ArrayList<>();
         }
         
-        public void addFee(TreeNode transaction) {
+        public void addFee(Nodes transaction) {
             this.sum = transaction.addFee(this.sum);
             receipt.add(transaction);
         }
@@ -28,7 +28,7 @@ public class User {
         
         public void displayReceipt() {
             currency = NumberFormat.getCurrencyInstance();
-            for (TreeNode f : receipt) {
+            for (Nodes f : receipt) {
                 System.out.println(f.getName() + ": " + currency.format(f.getValue()));
             }
             System.out.println("Total: " + currency.format(this.sum) + "\n");
